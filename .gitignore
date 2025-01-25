@@ -1,0 +1,15 @@
+# Node.js/Frontend
+node_modules/
+dist/
+build/
+
+# Java/Backend
+target/
+*.log
+
+# Git et fichiers système
+.git/
+.idea/
+*.iml
+*.class
+.DS_Store
