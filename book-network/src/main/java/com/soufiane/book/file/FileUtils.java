@@ -14,17 +14,13 @@ import org.apache.commons.lang3.StringUtils;
 @Slf4j
 public class FileUtils {
 
-    public static Byte[] readFileFromLocation(String fileUrl) {
+    public static byte[] readFileFromLocation(String fileUrl) {
         if (StringUtils.isBlank(fileUrl)) {
             return null;
         }
         try {
             Path filePath = new File(fileUrl).toPath();
-            byte[] bytes = Files.readAllBytes(filePath);
-            // Conversion de byte[] en Byte[]
-            return IntStream.range(0, bytes.length)
-                    .mapToObj(i -> bytes[i])
-                    .toArray(Byte[]::new);
+            return Files.readAllBytes(filePath);
         } catch (IOException e) {
             log.warn("Nou file found in the path {}", fileUrl);
         }
