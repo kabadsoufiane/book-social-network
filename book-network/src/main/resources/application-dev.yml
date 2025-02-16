@@ -28,14 +28,12 @@ spring:
             trust: smtp.gmail.com
     protocol: smtp
 
-application:
   security:
-    jwt:
-      secret-key: MjM0ZDdmNzU1YjFhZmQ3OWZjMjJiODFkOTMwYjhlMGI4ZTliNjEyODQ1MDE3N2UwNjZmMWVkMzUyMGQ5ZjEyOQ==
-      expiration: 864000
-  mailing:
-    frontend:
-      activation-url: http://localhost:4200/activate-account
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: "http://localhost:9090/realms/book-social-network"
+application:
   file:
     upload:
       photos-output-path: ./uploads

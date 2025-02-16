@@ -11,15 +11,17 @@ import java.time.LocalDateTime;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
+//@Entity
 public class Token {
 
     @Id
     @GeneratedValue
     private Integer id;
+
+    @Column(unique = true)
     private String token;
     private LocalDateTime createdAt;
-    private LocalDateTime expiredAt;
+    private LocalDateTime expiresAt;
     private LocalDateTime validatedAt;
 
     @ManyToOne

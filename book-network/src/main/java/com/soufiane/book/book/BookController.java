@@ -106,7 +106,7 @@ public class BookController {
             @PathVariable("book-id") Integer bookId,
             Authentication connectedUser
     ) {
-        return ResponseEntity.ok(service.approuveReturnBorrowBook(bookId, connectedUser));
+        return ResponseEntity.ok(service.approveReturnBorrowedBook(bookId, connectedUser));
     }
 
     @PostMapping(value = "/cover/{book-id}", consumes = "multipart/form-data")
@@ -116,7 +116,7 @@ public class BookController {
             @RequestPart("file") MultipartFile file,
             Authentication connectedUser
     ) {
-        service.uploadBookCouverPicture(file, connectedUser, bookId);
+        service.uploadBookCoverPicture(file, connectedUser, bookId);
         return ResponseEntity.accepted().build();
     }
 }

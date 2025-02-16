@@ -1,5 +1,6 @@
 package com.soufiane.book.file;
 
+import jakarta.annotation.Nonnull;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -25,8 +26,9 @@ public class FileStorageService {
     private String fileUploadPath;
 
     public String saveFile(
-            @NonNull MultipartFile sourceFile,
-            @NonNull Integer userId) {
+            @Nonnull MultipartFile sourceFile,
+            @Nonnull String userId
+    ) {
         final String fileUploadSubPath = "users" + separator + userId;
         return uploadFile(sourceFile, fileUploadSubPath);
     }

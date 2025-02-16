@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {PageResponseBorrowedBookResponse} from "../../../../services/models/page-response-borrowed-book-response";
-import {BorrowedBookResponse} from "../../../../services/models/borrowed-book-response";
-import {BookService} from "../../../../services/services/book.service";
-import {FeedbackService} from "../../../../services/services/feedback.service";
-import {BookResponse} from "../../../../services/models/book-response";
+import {BookService} from '../../../../services/services/book.service';
+import {PageResponseBorrowedBookResponse} from '../../../../services/models/page-response-borrowed-book-response';
+import {BorrowedBookResponse} from '../../../../services/models/borrowed-book-response';
+import {BookResponse} from '../../../../services/models/book-response';
+import {FeedbackService} from '../../../../services/services/feedback.service';
 import {FeedBackRequest} from "../../../../services/models/feed-back-request";
 
 @Component({
