@@ -29,5 +29,8 @@ export class MenuComponent implements OnInit {
   async logout() {
     this.keycloakService.logout();
   }
-
+  get username() {
+    // @ts-ignore
+    return this.keycloakService.keycloak.tokenParsed?.given_name
+  }
 }
