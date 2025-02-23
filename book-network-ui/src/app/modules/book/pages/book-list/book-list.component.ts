@@ -3,6 +3,7 @@ import {BookService} from "../../../../services/services/book.service";
 import {Router} from "@angular/router";
 import {PageResponseBookResponse} from "../../../../services/models/page-response-book-response";
 import {BookResponse} from "../../../../services/models/book-response";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-book-list',
@@ -19,7 +20,8 @@ export class BookListComponent implements OnInit {
 
   constructor(
     private bookService: BookService,
-    private router: Router
+    private router: Router,
+    private toastrService: ToastrService
   ) {
   }
 
@@ -77,13 +79,10 @@ export class BookListComponent implements OnInit {
       'book-id': book.id as number
     }).subscribe({
       next: () => {
-        this.level = 'success'
-        this.message = 'Book successfully added to your list'
+        this.toastrService.success('Book successfully added to your list', 'Done!');
       },
       error: (err) => {
-        console.log(err);
-        this.level = 'error'
-        this.message = err.error.error;
+        this.toastrService.error(err.error.error, 'Ouuups!!!')
       }
     });
   }

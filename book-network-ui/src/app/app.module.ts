@@ -11,6 +11,7 @@ import {HttpTokenInterceptor} from './services/interceptor/http-token.intercepto
 import { ActivateAccountComponent } from './pages/activate-account/activate-account.component';
 import {CodeInputModule} from 'angular-code-input';
 import {KeycloakService} from "./services/keycloak/keycloak.service";
+import {ToastrModule} from "ngx-toastr";
 
 export function kcFactory(kcService: KeycloakService) {
   return () => kcService.init();
@@ -27,7 +28,15 @@ export function kcFactory(kcService: KeycloakService) {
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    CodeInputModule
+    CodeInputModule,
+    ToastrModule.forRoot({
+      progressBar: true,
+      closeButton: true,
+      newestOnTop: true,
+      tapToDismiss: true,
+      positionClass: 'toast-bottom-right',
+      timeOut: 8000
+    })
   ],
   providers: [
     HttpClient,

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {PageResponseBorrowedBookResponse} from "../../../../services/models/page-response-borrowed-book-response";
 import {BookService} from "../../../../services/services/book.service";
 import {BorrowedBookResponse} from "../../../../services/models/borrowed-book-response";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-return-books',
@@ -16,7 +17,8 @@ export class ReturnBooksComponent {
   message = '';
   level: 'success' |'error' = 'success';
   constructor(
-    private bookService: BookService
+    private bookService: BookService,
+    private toastrService: ToastrService
   ) {
   }
 
@@ -75,8 +77,7 @@ export class ReturnBooksComponent {
       'book-id': book.id as number
     }).subscribe({
       next: () => {
-        this.level = 'success';
-        this.message = 'Book return approved';
+        this.toastrService.success('Book return approved','Done!');
         this.findAllReturnedBooks();
       }
     });
